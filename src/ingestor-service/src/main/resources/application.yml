@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: ingestor-service
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+  data:
+    redis:
+      host: ${SPRING_DATA_REDIS_HOST:localhost}
+      port: ${SPRING_DATA_REDIS_PORT:6379}
+  rabbitmq:
+    host: ${SPRING_RABBITMQ_HOST:localhost}
+    port: ${SPRING_RABBITMQ_PORT:5672}
+    username: ${SPRING_RABBITMQ_USERNAME:guest}
+    password: ${SPRING_RABBITMQ_PASSWORD:guest}
+
+solar:
+  nasa:
+    api-key: ${NASA_API_KEY:DEMO_KEY}
+    use-mock: ${NASA_USE_MOCK:false}
+    lookback-days: ${GST_LOOKBACK_DAYS:180}
+  cache:
+    ttl-seconds: ${CACHE_TTL_SECONDS:60}
+  rabbit:
+    enabled: ${RABBIT_ENABLED:true}
