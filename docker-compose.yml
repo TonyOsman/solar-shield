@@ -35,6 +35,18 @@ services:
       rabbitmq:
         condition: service_healthy
 
+  notifier-service:
+    build: ./src/notifier-service
+    environment:
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_RABBITMQ_HOST: rabbitmq
+      IDEMPOTENCY_TTL_SECONDS: ${IDEMPOTENCY_TTL_SECONDS:-86400}
+    depends_on:
+      redis:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+
   nginx:
     image: nginx:1.27-alpine
     ports:

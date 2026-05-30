@@ -8,5 +8,6 @@
   <packaging>pom</packaging>
   <modules>
     <module>src/ingestor-service</module>
+    <module>src/notifier-service</module>
   </modules>
 </project>
